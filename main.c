@@ -3,6 +3,7 @@
 #include <string.h>
 #include <dirent.h>
 #include <sys/stat.h>
+#include <stack.h>
 #define HELP_COMMAND "-help"
 #define SEARCH_COMMAND "-search"
 
@@ -13,7 +14,10 @@ int search_file(char *file);
 int main(int argc, char *argv[])
 {
  //   parse_args(argv);
-    search_file("something");
+  //  search_file("something");
+    stack stak;
+    add_value_to_stack(stak,15);
+    print_stack(&stak);
     return 1;
 }
 
