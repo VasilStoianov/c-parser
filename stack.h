@@ -1,3 +1,5 @@
+#ifndef _stack_h
+#define _stack_h
 #include <stdlib.h>
 
 void add_value_to_stack(stack stak,int value);
@@ -37,6 +39,8 @@ void print_stack(stack *stak){
         printf("Value of index %d is %d\n",i,stak->data[i]);
     }
 }    
+
+#endif
 
 
 

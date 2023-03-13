@@ -3,7 +3,7 @@
 #include <string.h>
 #include <dirent.h>
 #include <sys/stat.h>
-#include <stack.h>
+#include "stack.h"
 #define HELP_COMMAND "-help"
 #define SEARCH_COMMAND "-search"
 
