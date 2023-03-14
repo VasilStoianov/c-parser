@@ -3,7 +3,7 @@
 #include <string.h>
 #include <dirent.h>
 #include <sys/stat.h>
-#include "stack.h"
+#include "list.h"
 #define HELP_COMMAND "-help"
 #define SEARCH_COMMAND "-search"
 
@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
 {
  //   parse_args(argv);
   //  search_file("something");
-    stack stak = stack_default;
-    add_value_to_stack(&stak,15);
-    print_stack(&stak);
+    list list = list_default;
+    add_value_to_list(&list,15);
+    print_list(&list);
     return 1;
 }
 
