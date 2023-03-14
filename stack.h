@@ -2,10 +2,6 @@
 #define _stack_h
 #include <stdlib.h>
 
-void add_value_to_stack(stack stak,int value);
-
-void resize_stack(stack *stak);
-
  struct stack
 {
     int data[15];
@@ -13,7 +9,11 @@ void resize_stack(stack *stak);
     int values;
 } stack_default = {0,15,0};
 
-typedef stack stack;
+typedef struct stack stack;
+
+void add_value_to_stack(stack stak,int value);
+
+void resize_stack(stack *stak);
 
 void add_value_to_stack(stack stak,int value){
      if(stak.length - stak.values < 4){
