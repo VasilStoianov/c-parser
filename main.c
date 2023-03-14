@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 {
  //   parse_args(argv);
   //  search_file("something");
-    stack stak;
-    add_value_to_stack(stak,15);
+    stack stak = stack_default;
+    add_value_to_stack(&stak,15);
     print_stack(&stak);
     return 1;
 }
