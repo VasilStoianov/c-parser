@@ -1,6 +1,12 @@
-#ifndef _file_search_h
-#define _file_search_h
+#pragma once
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#define HELP_COMMAND "-help"
+#define SEARCH_COMMAND "-search"
 
 
 void parse_args(char *arguments[]);
@@ -47,32 +53,3 @@ int string_compare(char *str1, char *str2)
     return 1;
 }
 
-int search_file(char *file)
-{
-    struct dirent *de;
-    DIR *dir = opendir(".");
-    if (dir == NULL) // opendir returns NULL if couldn't open directory
-    {
-        printf("Could not open current directory");
-        return 0;
-    }
-    iterate_and_compare(dir, file);
-
-    return 1;
-}
-
-int iterate_and_compare(struct DIR *dir, char *file)
-{
-    struct dirent *de;
-    while ((de = readdir(dir)) != NULL)
-    {
-        printf("COMPARING %s and %s \n", de->d_name, file);
-        if (string_compare(de->d_name, file) == 1)
-        {
-            printf("File found\n");
-            return 1;
-        }
-    }
-}
-
-#endif
