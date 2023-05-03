@@ -1,6 +1,8 @@
 #ifndef _list_h
 #define _list_h
 #include <stdlib.h>
+#include <stdio.h>
+
 
 
 struct list

@@ -8,10 +8,11 @@
 #include <string.h>
 #define HELP_COMMAND "-help"
 #define SEARCH_COMMAND "-search"
+#define GIT_COMMAND "-git"
 
 void parse_args(char *arguments[]);
 int string_compare(char *str1, char *str2);
-int search_file(char *file);
+char *search_file(char *filename, char *dir_path);
 
 // Function to recursively search for a file in a directory tree
 char *search_file(char *filename, char *dir_path)
@@ -81,9 +82,9 @@ void parse_args(char *arguments[])
         };
         if (string_compare(arguments[count], SEARCH_COMMAND) == 1)
         {
-            printf("SEARCHING FOR %s", arguments[count + 1]); // TODO fix the search  and add search types etc dir,file
+            printf("SEARCHING FOR %s\n", arguments[count + 1]); // TODO fix the search  and add search types etc dir,file
 
-            char *result = search_file("zimb.h", ".");
+            char *result = search_file(arguments[count + 1], ".");
             if (result)
             {
                 printf("%s\n", result);
@@ -93,9 +94,10 @@ void parse_args(char *arguments[])
             else
             {
                 printf("File not found\n");
+                 free(result);
                 break;
             }
-            free(result);
+           
         }
         count++;
     }
